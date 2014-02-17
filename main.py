@@ -27,7 +27,7 @@ class MainWindow(QtGui.QMainWindow):
                 #self.terrainScene.addItem(self.cells[-1])
         self.view = QtGui.QGraphicsView(self.terrainScene)
         self.view.centerOn(self.terrainScene.width() / 2, self.terrainScene.height() / 2)
-        self.view.scale(10, 10)
+        self.view.scale(30, 30)
         #self.view.setupViewport()
         self.setCentralWidget(self.view)
 

@@ -8,7 +8,7 @@ class TerrainScene(QtGui.QGraphicsScene):
         self.setSceneRect(0, 0, width, height)
         #self.cell = CellItem.CellItem(100.0, 100.0)
         #self.addItem(self.cell)
-    def mousePressEvent(self, event):
-        i=0
+    #def mousePressEvent(self, event):
+        #super.mousePressEvent(self, event)
 
 
