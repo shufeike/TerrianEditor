@@ -12,22 +12,25 @@ class CellItem(QtGui.QGraphicsRectItem):
     def __init__(self, width=1, height=1):
         QtGui.QGraphicsRectItem.__init__(self, 0.0, 0.0, width, height)
         self.cellType = CellItemType.CIT_BLANK
+        self.setFlag(QtGui.QGraphicsItem.ItemIsSelectable)
+        self.hover = False
+        self.brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
     def paint(self, painter, option, widget):
-        #painter.drawPixmap(QtCore.QRect(0, 0, self.rect().width(), self.rect().width()), self.pixmap)
-        painter.setPen(QtGui.QColor(255, 0, 0))
-        if(self.cellType == CellItemType.CIT_BLANK):
-            painter.setBrush(QtGui.QColor(255, 255, 255))
-            #painter.setBrush(QtGui.QColor(0, 0, 0))
-            #painter.drawRoundedRect(0, 0, 1, 1, 0.1, 0.1)
-        elif(self.cellType == CellItemType.CIT_WALL):
-            painter.setBrush(QtGui.QColor(100, 100, 100))
-        elif(self.cellType == CellItemType.CIT_DC):
-            painter.setBrush(QtGui.QColor(0, 0, 255))
-        elif(self.cellType == CellItemType.CIT_FLOOR):
-            painter.setBrush(QtGui.QColor(0, 255, 0))
-        painter.drawRoundedRect(0, 0, 1, 1, 0.1, 0.1)
-    def mousePressEvent(self, event):
-        self.cellType = self.cellType + 1
-        self.cellType %=  CellItemType.CIT_TAIL
-        self.update()
+        if self.isSelected():
+            painter.setPen(QtGui.QColor(255, 0, 0))
+            if(self.cellType == CellItemType.CIT_BLANK):
+                self.brush.setColor(QtGui.QColor(255, 255, 255))
+            elif(self.cellType == CellItemType.CIT_WALL):
+                self.brush.setColor(QtGui.QColor(100, 100, 100))
+            elif(self.cellType == CellItemType.CIT_DC):
+                self.brush.setColor(QtGui.QColor(0, 0, 255))
+            elif(self.cellType == CellItemType.CIT_FLOOR):
+                self.brush.setColor(QtGui.QColor(0, 255, 0))
+        else:
+            #self.brush.setColor(QtGui.QColor(255, 0, 0))
+            painter.setPen(QtGui.QColor(0, 0, 0))
+        painter.setBrush(self.brush)
+        painter.drawRoundedRect(0, 0, 1, 1, 0.0, 0.0)
 
+    def SetType(self, type):
+        self.cellType = type
