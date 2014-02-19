@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'MainWindow.ui'
 #
-# Created: Tue Feb 18 19:09:45 2014
+# Created: Wed Feb 19 16:13:06 2014
 #      by: PyQt4 UI code generator 4.10.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -35,24 +35,28 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuFile = QtGui.QMenu(self.menubar)
         self.menuFile.setObjectName(_fromUtf8("menuFile"))
+        self.menuScene = QtGui.QMenu(self.menubar)
+        self.menuScene.setObjectName(_fromUtf8("menuScene"))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
         MainWindow.setStatusBar(self.statusbar)
-        self.dockWidget = QtGui.QDockWidget(MainWindow)
-        self.dockWidget.setAllowedAreas(QtCore.Qt.LeftDockWidgetArea)
-        self.dockWidget.setObjectName(_fromUtf8("dockWidget"))
-        self.dockWidgetContents = QtGui.QWidget()
-        self.dockWidgetContents.setObjectName(_fromUtf8("dockWidgetContents"))
-        self.dockWidget.setWidget(self.dockWidgetContents)
-        MainWindow.addDockWidget(QtCore.Qt.DockWidgetArea(1), self.dockWidget)
         self.actionNew = QtGui.QAction(MainWindow)
         self.actionNew.setObjectName(_fromUtf8("actionNew"))
         self.actionSave = QtGui.QAction(MainWindow)
         self.actionSave.setObjectName(_fromUtf8("actionSave"))
+        self.actionAddFloor = QtGui.QAction(MainWindow)
+        self.actionAddFloor.setObjectName(_fromUtf8("actionAddFloor"))
+        self.actionAddStair = QtGui.QAction(MainWindow)
+        self.actionAddStair.setObjectName(_fromUtf8("actionAddStair"))
+        self.actionOpen = QtGui.QAction(MainWindow)
+        self.actionOpen.setObjectName(_fromUtf8("actionOpen"))
         self.menuFile.addAction(self.actionNew)
         self.menuFile.addAction(self.actionSave)
+        self.menuFile.addAction(self.actionOpen)
+        self.menuScene.addAction(self.actionAddFloor)
         self.menubar.addAction(self.menuFile.menuAction())
+        self.menubar.addAction(self.menuScene.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -60,6 +64,10 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
         self.menuFile.setTitle(_translate("MainWindow", "File", None))
+        self.menuScene.setTitle(_translate("MainWindow", "Scene", None))
         self.actionNew.setText(_translate("MainWindow", "New", None))
         self.actionSave.setText(_translate("MainWindow", "Save", None))
+        self.actionAddFloor.setText(_translate("MainWindow", "AddFloor", None))
+        self.actionAddStair.setText(_translate("MainWindow", "AddStair", None))
+        self.actionOpen.setText(_translate("MainWindow", "Open", None))
 
