@@ -20,19 +20,30 @@ class CellItem(QtGui.QGraphicsRectItem):
         self.hover = False
         self.brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
     def paint(self, painter, option, widget):
-        if(self.cellType == CellItemType.CIT_BLANK):
-            self.brush.setColor(QtGui.QColor(255, 255, 255))
-        elif(self.cellType == CellItemType.CIT_WALL):
-            self.brush.setColor(QtGui.QColor(0, 0, 0))
-        elif(self.cellType == CellItemType.CIT_DC):
-            self.brush.setColor(QtGui.QColor(0, 0, 255))
-        elif(self.cellType == CellItemType.CIT_FLOOR):
-            self.brush.setColor(QtGui.QColor(0, 255, 0))
         if self.isSelected():
             painter.setPen(QtGui.QColor(255, 0, 0))
         else:
             #self.brush.setColor(QtGui.QColor(255, 0, 0))
             painter.setPen(QtGui.QColor(0, 0, 0))
+
+        if(self.cellType == CellItemType.CIT_BLANK):
+            painter.setPen(QtGui.QColor(255,  255, 255))
+            self.brush.setColor(QtGui.QColor(255, 255, 255))
+        elif(self.cellType == CellItemType.CIT_FLOOR):
+            self.brush.setColor(QtGui.QColor(255, 255, 255))
+        elif(self.cellType == CellItemType.CIT_WALL):
+            self.brush.setColor(QtGui.QColor(0, 0, 0))
+        elif(self.cellType == CellItemType.CIT_DC):
+            self.brush.setColor(QtGui.QColor(0, 0, 255))
+        elif self.cellType == CellItemType.CIT_EXIT:
+            self.brush.setColor(QtGui.QColor(0, 255, 0))
+        elif self.cellType == CellItemType.CIT_STAIR:
+            self.brush.setColor(QtGui.QColor(0, 128, 128))
+        elif self.cellType == CellItemType.CIT_PARAPET:
+            self.brush.setColor(QtGui.QColor(128, 128, 0))
+        elif self.cellType == CellItemType.CIT_INTERSECTION:
+            self.brush.setColor(QtGui.QColor(128, 0, 128))
+
         painter.setBrush(self.brush)
         painter.drawRoundedRect(0, 0, 1, 1, 0.0, 0.0)
 

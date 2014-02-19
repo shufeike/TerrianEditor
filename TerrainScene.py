@@ -32,8 +32,8 @@ class TerrainScene(QtGui.QGraphicsScene):
             self.setSelectionArea(rectPath)
         self.LeftButtonPressed = False;
         for cell in self.selectedItems():
-            if self.cellType != CellItem.CellItemType.CIT_BLANK:
-                cell.SetType(self.cellType)
+            #if self.cellType != CellItem.CellItemType.CIT_BLANK:
+            cell.SetType(self.cellType)
             cell.update()
         QtGui.QGraphicsScene.mouseReleaseEvent(self, event)
 

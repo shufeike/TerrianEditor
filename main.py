@@ -2,6 +2,7 @@ import sys
 from PyQt4 import QtGui
 import Ui_MainWindow
 import AddFloorDialog
+import  OpenFloorDialog
 class MainWindow(QtGui.QMainWindow):
     def __init__(self):
         QtGui.QMainWindow.__init__(self)
@@ -14,7 +15,7 @@ class MainWindow(QtGui.QMainWindow):
     def newTriggered(self):
         i=0
     def openFile(self):
-        self.addThing = AddFloorDialog.AddFloorDialog()
+        self.addThing = OpenFloorDialog.OpenFloorDialog()
         self.addThing.drawSceneFromFile("terrain.data")
     def addFloor(self):
         self.addThing = AddFloorDialog.AddFloorDialog()
