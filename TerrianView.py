@@ -5,6 +5,6 @@ class TerrianView(QtGui.QGraphicsView):
         QtGui.QGraphicsView.__init__(self, scene)
     def keyReleaseEvent(self, event):
         if event.key() == QtCore.Qt.Key_Equal:
-            self.scale(2, 2)
+            self.scale(1.1, 1.1)
         elif event.key() == QtCore.Qt.Key_Minus:
-            self.scale(0.5, 0.5)
+            self.scale(0.9, 0.9)
