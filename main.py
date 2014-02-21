@@ -15,8 +15,9 @@ class MainWindow(QtGui.QMainWindow):
     def newTriggered(self):
         i=0
     def openFile(self):
+        filename = QtGui.QFileDialog.getOpenFileName()
         self.addThing = OpenFloorDialog.OpenFloorDialog()
-        self.addThing.drawSceneFromFile("terrain.data")
+        self.addThing.drawSceneFromFile(filename)
     def addFloor(self):
         self.addThing = AddFloorDialog.AddFloorDialog()
 
